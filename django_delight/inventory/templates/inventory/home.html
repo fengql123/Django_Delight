@@ -1,0 +1,10 @@
+{% extends './base.html' %} {% block content %}
+
+<div>
+  <a href="{% url 'ingredientlist' %}">Ingredients</a>
+  <a href="{% url 'menulist' %}">Menu</a>
+  <a href="{% url 'purchaselist' %}">Purchase</a>
+  <a>Finance</a>
+</div>
+
+{% endblock %}
