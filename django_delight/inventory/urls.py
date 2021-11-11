@@ -1,9 +1,12 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name="home"),
+    path("accounts/", include("django.contrib.auth.urls"), name="login"),
+    path("signup/", views.SignUp.as_view(), name="signup"),
+    path("logout/", views.logout_view, name="logout"),
     path('ingredients/', views.IngredientList.as_view(), name='ingredientlist'),
     path('ingredients/create', views.IngredientCreate.as_view(),
          name='ingredientcreate'),
@@ -25,6 +28,4 @@ urlpatterns = [
          name='purchaseupdate'),
     path('purchase/delete/<pk>', views.PurchaseDelete.as_view(),
          name='purchasedelete'),
-
-
 ]
